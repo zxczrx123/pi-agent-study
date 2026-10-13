@@ -1,0 +1,23 @@
+Use case: infographic-diagram
+Asset type: Chinese educational timing comparison for Pi Agent Core documentation.
+Primary request: Explain precisely the difference between tool completion order and transcript message order in parallel versus sequential execution. Use a clear two-panel timing chart with slow=80ms and fast=10ms.
+Style/medium: Polished flat technical figure, off-white background, dark high-contrast Chinese sans-serif, monospace API identifiers, spacious layout, teal and blue bars used consistently for slow and fast across both panels. No texture, no 3D, no unnecessary decorative icons. Landscape 4:3, generous margins.
+Composition: Title and small introduction at top. Two equal-width panels side by side. Each panel has a simple horizontal time axis and two aligned task rows. Under each chart, two labelled rows describe completion-event order and transcript order. A full-width rule at the bottom. All text large enough to read in documentation.
+Text (verbatim):
+Title: "并行执行，按声明顺序保存结果"
+Introduction: "模型声明顺序：slow → fast"
+Left panel heading: "parallel（默认）"
+Right panel heading: "sequential"
+Task row labels in both panels: "slow", "fast"
+Axis label in both panels: "时间 →"
+Left bar labels: "80 ms", "10 ms"
+Right bar labels: "80 ms", "10 ms"
+Left completion label: "完成事件：fast → slow"
+Left transcript label: "结果消息：slow → fast"
+Left note: "等全部完成后，按声明顺序写入"
+Right completion label: "完成事件：slow → fast"
+Right transcript label: "结果消息：slow → fast"
+Right note: "逐个执行，每个结束后写入"
+Bottom rule: "任一工具要求 sequential，整批工具串行执行"
+Small explanation above bottom rule: "tool_execution_end 反映完成顺序；toolResult 保持声明顺序"
+Constraints: In parallel panel both slow and fast bars start at exactly the same horizontal x position, fast bar is one eighth the length of slow. In sequential panel fast begins only where slow ends, clearly show no time overlap. Both panels use the same time scale. Do not reverse slow and fast in transcript order. Do not imply toolResult messages are persisted to disk by the core; the word 写入 here means entering the message history. No made-up events, no clocks suggesting real benchmark measurements. Render only the requested text; Chinese characters and API spelling must be accurate. No logos, no watermark.

@@ -1,0 +1,5 @@
+
+> demo:live:check
+> node --import ./study/register-source.mjs ./study/03-real-model.ts --check
+
+初始化通过：anthropic/claude-sonnet-4-6；没有发送模型请求。

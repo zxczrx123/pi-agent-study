@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-13",
+  "requestedModel": "gpt-image-2.5",
+  "resolvedModel": "gpt-image-2.5-flare",
+  "method": "Configured provider imagegen CLI: generate-batch, generate and edit",
+  "providerBaseUrl": "https://www.lingqiaotech.com/v1",
+  "requestedQuality": "high",
+  "sourceCommit": "7bd01fb92485c06f92ecfff7ccf3197148bc16af",
+  "prompts": [
+    "prompts/01-architecture.txt",
+    "prompts/02-tool-loop.txt",
+    "prompts/03-parallel-order.txt",
+    "prompts/03-parallel-order-correction.txt",
+    "prompts/03-parallel-order-axis-cleanup.txt",
+    "prompts/04-input-queues.txt",
+    "prompts/05-state-and-prompt.txt"
+  ],
+  "assets": [
+    {
+      "filename": "01-architecture.png",
+      "width": 2048,
+      "height": 1536,
+      "bytes": 1892438,
+      "sha256": "083081a1a88486decc9096aa660c90d38f913796032f926a9c73d1f33c4adfb5"
+    },
+    {
+      "filename": "02-tool-loop.png",
+      "width": 2048,
+      "height": 1536,
+      "bytes": 1997988,
+      "sha256": "c4953ea4b2f104d58870ca4b67a811b0b592f12e411af20dbfe481db8a8549f4"
+    },
+    {
+      "filename": "03-parallel-order-v3.png",
+      "width": 2048,
+      "height": 1536,
+      "bytes": 2582254,
+      "sha256": "dc60f6129568cb4cc94abdefe41a8aedc7a425c6247bfea18a59080b4c241725"
+    },
+    {
+      "filename": "04-input-queues.png",
+      "width": 2048,
+      "height": 1536,
+      "bytes": 2073474,
+      "sha256": "4c603a18311b19cda439a6b06fefa79e482deb4c3cdd3cc5bbe8850e26890ea2"
+    },
+    {
+      "filename": "05-state-and-prompt-opaque.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 1051294,
+      "sha256": "ce4b774cc5228e8f7c912a92d86b710df097ecd37062e7d4b34b0ebf1be695a1",
+      "sourceFilename": "05-state-and-prompt.png",
+      "postprocessing": "Pillow alpha composite onto RGB #fafbfd; no resize or content edit"
+    }
+  ],
+  "requestedSize": "2048x1536",
+  "sourceAssets": [
+    {
+      "filename": "05-state-and-prompt.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 1531560,
+      "sha256": "307079668b0edb38c7d417b7c962ab4bd615af291b82ee434d0d2ddfd6009732",
+      "mode": "RGBA"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+Use case: infographic-diagram
+Asset type: Chinese teaching figure for a source-code guide showing one prompt with two model turns and one tool call.
+Primary request: Create a very clear visual story of the actual Pi Agent Core tool loop for 2 + 3. Show that one user input leads to two model requests, and the tool result is inserted into the transcript between them.
+Style/medium: Polished flat technical illustration on a clean off-white background, dark high-contrast Chinese sans-serif and monospace identifiers. Thin crisp directional arrows, generous whitespace, restrained blue for model responses and teal for tool execution. Landscape 4:3, wide margins. Functional diagram only.
+Composition: Title and subtitle at top. Below, a user-input pill. Then two spacious horizontal rows inside one enclosing container labelled as a run. First row is Turn 1 with three numbered cards in left-to-right order; second row is Turn 2 with two numbered cards in left-to-right order. One unambiguous arrow snakes from the end of row one to the start of row two. At bottom, a separate five-message transcript ribbon. Never draw the model executing a JavaScript function itself.
+Text (verbatim):
+Title: "一次 prompt，两次模型请求"
+Subtitle: "工具结果成为下一轮模型输入"
+Input pill: "用户：请计算 2 + 3"
+Container label: "一次 run"
+First row label: "Turn 1"
+Card 1 heading: "① 请求模型"
+Card 1 detail: "system + user"
+Card 2 heading: "② 模型提出工具调用"
+Card 2 detail: "add({a: 2, b: 3})"
+Card 3 heading: "③ 运行库执行工具"
+Card 3 detail: "参数校验 → execute → 5"
+Row-connecting arrow label: "追加 toolResult"
+Second row label: "Turn 2"
+Card 4 heading: "④ 再次请求模型"
+Card 4 detail: "历史 + 工具调用 + 工具结果"
+Card 5 heading: "⑤ 模型给出答案"
+Card 5 detail: "2 + 3 = 5"
+Transcript ribbon heading: "最终消息历史"
+Transcript ribbon: "system → user → assistant → toolResult → assistant"
+Footer: "一个 turn = 一次助手响应 + 本轮工具执行"
+Constraints: Exactly five numbered cards and exactly two rows labelled Turn 1 and Turn 2. No extra model call. The user input points to card 1, then arrows 1→2→3→4→5. The tool result appears after execution and before request 2. The final answer has no tool call. Transcript ribbon has exactly five entries, in the specified order. Render all text exactly and legibly, preserve API identifiers, no logos, no watermark. This figure is the normal successful tool-calling path, not an exhaustive scheduler flowchart.

@@ -1,0 +1,25 @@
+Use case: infographic-diagram
+Asset type: Chinese technical teaching figure for a source-code learning document.
+Primary request: Explain an experimentally verified distinction in Pi Agent Core: during one active run, assigning the public Agent.state does not automatically replace the loop's model/tool snapshots; a preinstalled prepareNextTurnWithContext hook can explicitly synchronize those values and append a named system-prompt patch.
+Style/medium: Clean flat technical infographic, off-white background, crisp spacious rounded rectangles, dark Chinese sans-serif text and clear monospace code identifiers. Blue for public state, muted gray for unchanged loop snapshots, teal for explicit synchronization. Match a restrained professional documentation figure, no decorative icons, no textures, no 3D. Landscape 4:3, generous margins, readable type.
+Composition: Top title and subtitle. Upper row of three connected boxes establishes the common scenario. Middle has two separate left-to-right horizontal rows comparing scenario A and scenario B; the two scenarios are alternatives, never sequential. Bottom has two equally sized explanatory cards for prompt patch semantics and request-only transformation. Use only the text specified below. Preserve all identifiers and Chinese characters exactly.
+Text (verbatim):
+Title: "State 与 Prompt 的动态更新"
+Subtitle: "同一次 run：修改公开状态后，下一次请求会看到什么？"
+Upper row first box: "请求 1" and "model-A · 工具 add"
+Upper row second box: "工具执行完成" and "add(2, 3) → 5"
+Upper row third box: "应用修改 Agent.state" and "model = B" and "tools = []"
+Middle row A label: "A  只修改 state"
+Middle row A left box: "循环继续使用已有快照"
+Middle row A right box: "请求 2" and "model-A · 工具 add"
+Middle row B label: "B  显式同步下一轮"
+Middle row B first box: "prepareNextTurnWithContext" and "返回 model、context.tools、messages"
+Middle row B second box: "记录 system 更新" and "phase = 总结 · 移除 add"
+Middle row B third box: "请求 2" and "model-B · 无工具"
+Bottom left card heading: "Prompt 更新规则"
+Bottom left card body: "content：追加文字" and "sections 同名：替换片段" and "sections 值为 null：删除片段"
+Bottom right card heading: "仅本次请求可见"
+Bottom right card body: "transformContext 返回新消息数组" and "可加入临时上下文" and "不自动写入 state.messages"
+Footer: "运行 demo:state，观察实际请求与公开状态的差异"
+Arrow constraints: Upper boxes connect left-to-right once. Each comparison row has its own left-to-right arrows only. Do not connect A's result to B. In row B, hook return → recorded system update → request 2 is the correct order. The tool removal declaration is written by the loop after the hook. Do not imply the public state mutation interrupts a running request or executing tool. Do not draw arrows from temporary request-only content back to persisted messages. The image describes the two-turn scenario only, not all possible hooks or scheduling rules.
+Avoid: invented text, tiny text, pseudo-code beyond the specified identifiers, provider logos, watermarks, visual clutter.

@@ -1,0 +1,26 @@
+Use case: infographic-diagram
+Asset type: Chinese educational timeline for a Pi Agent Core source-code guide.
+Primary request: Draw an exact example timeline explaining steer, followUp and abort. The example has one tool batch, one queued steering message and one queued follow-up message. Current tools finish first; steering affects the next model request; followUp waits until the agent would otherwise stop.
+Style/medium: Polished flat technical teaching diagram on off-white, dark high-contrast Chinese sans-serif with monospace API labels. Restrained blue for the normal run, amber for steering, teal for follow-up. Thin connectors, roomy cards, readable labels, large margins, landscape 4:3. No 3D or decorative imagery.
+Composition: Top title and scope subtitle. Main timeline of four numbered stages left-to-right across the middle. Above the first stage, two queued-message cards, each with a connector to the appropriate later stage. Below the timeline, two short semantic explanation cards and a visually separated cancellation note. No crossing connector lines.
+Text (verbatim):
+Title: "运行中的新消息，何时生效？"
+Subtitle: "示例：工具运行时加入 steer 和 followUp"
+Queued card 1: "steer：先用中文解释"
+Queued card 2: "followUp：再给一句总结"
+Stage 1 heading: "① 当前工具批次"
+Stage 1 detail: "所有工具完成"
+Stage 2 heading: "② 注入 steer"
+Stage 2 detail: "下一次模型请求"
+Stage 3 heading: "③ 原本要结束"
+Stage 3 detail: "无后续工具与 steer"
+Stage 4 heading: "④ 注入 followUp"
+Stage 4 detail: "再开始一轮"
+Explanation 1 heading: "steer"
+Explanation 1 detail: "改变后续方向，当前批次继续执行"
+Explanation 2 heading: "followUp"
+Explanation 2 detail: "等待自然停止点，再追加任务"
+Cancellation note heading: "abort()"
+Cancellation note detail: "发出取消信号；模型与工具需要配合处理"
+Footer: "两个队列默认每次取一条：one-at-a-time"
+Constraints: This is an example timeline, NOT a universal decision tree. Both queued-message cards originate during stage 1. The steer card connects only to stage 2, the followUp card only to stage 4. Arrows connect stages 1→2→3→4, no skipped stage, no loop arrows. Never show steer cancelling or skipping tools. Never show followUp running concurrently with the current tool batch. Keep abort in a separate note, not in the main timeline. Render exactly the given text, correct Chinese and capitalization, no extra guarantees, no logos, no watermark.

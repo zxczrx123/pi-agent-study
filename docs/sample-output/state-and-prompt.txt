@@ -1,0 +1,34 @@
+
+> demo:state
+> node --import ./study/register-source.mjs ./study/04-state-and-prompt.ts
+
+
+=== 只修改公开 state ===
+prepareRequest：第 1 次，包括首次请求。
+请求 1：{"model":"model-A","tools":["add"],"phase":"<phase>调用工具计算</phase>","legacy":"<legacy>计算阶段临时规则</legacy>","requestContext":"<request_context>本次请求序号 1</request_context>"}
+应用设置 state.model = B，state.tools = []；当前循环不会自动重新取快照。
+prepareRequest：第 2 次，包括首次请求。
+请求 2：{"model":"model-A","tools":["add"],"phase":"<phase>调用工具计算</phase>","legacy":"<legacy>计算阶段临时规则</legacy>","requestContext":"<request_context>本次请求序号 2</request_context>"}
+最终公开 Prompt：
+你是一个计算助手。
+
+<phase>调用工具计算</phase>
+
+<legacy>计算阶段临时规则</legacy>
+通过：请求配置、system 补丁、临时上下文和 idle 时机均符合断言。
+
+=== 通过下一轮钩子同步 ===
+prepareRequest：第 1 次，包括首次请求。
+请求 1：{"model":"model-A","tools":["add"],"phase":"<phase>调用工具计算</phase>","legacy":"<legacy>计算阶段临时规则</legacy>","requestContext":"<request_context>本次请求序号 1</request_context>"}
+应用设置 state.model = B，state.tools = []；当前循环不会自动重新取快照。
+prepareNextTurn：同步模型/工具，并追加具名 Prompt 更新。
+保存 system 更新：{"role":"system","content":"","sections":{"phase":"<phase>根据结果总结</phase>","legacy":null},"timestamp":1791863976775,"toolsRemoved":[{"name":"add"}]}
+prepareRequest：第 2 次，包括首次请求。
+请求 2：{"model":"model-B","tools":[],"phase":"<phase>根据结果总结</phase>","requestContext":"<request_context>本次请求序号 2</request_context>"}
+最终公开 Prompt：
+你是一个计算助手。
+
+<phase>根据结果总结</phase>
+通过：请求配置、system 补丁、临时上下文和 idle 时机均符合断言。
+
+通过：content 累加，sections 同名覆盖、null 删除；section 名不会自动变成正文标签。

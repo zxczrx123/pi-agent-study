@@ -1,0 +1,14 @@
+{
+  "name": "pi-agent-core-study",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.19.0" },
+  "scripts": {
+    "demo:loop": "node --import ./study/register-source.mjs ./study/01-tool-loop.ts",
+    "demo:queues": "node --import ./study/register-source.mjs ./study/02-queues-and-parallel.ts",
+    "demo:sequential": "node --import ./study/register-source.mjs ./study/02-queues-and-parallel.ts --sequential",
+    "demo:state": "node --import ./study/register-source.mjs ./study/04-state-and-prompt.ts",
+    "demo:live": "node --import ./study/register-source.mjs ./study/03-real-model.ts",
+    "demo:live:check": "node --import ./study/register-source.mjs ./study/03-real-model.ts --check"
+  }
+}

@@ -1,0 +1,28 @@
+Use case: infographic-diagram
+Asset type: Chinese educational infographic embedded in a Pi Agent Core source-code guide.
+Primary request: Draw a clear, carefully typeset architecture diagram explaining the responsibilities and connections of Pi's three layers. This is a teaching figure, with real semantic arrows and large legible Chinese text.
+Style/medium: Polished flat technical illustration on a clean off-white background. Thin crisp connectors, spacious rectangular modules, restrained blue and teal highlights for semantic grouping, dark high-contrast text, no textures, no 3D. Chinese sans-serif and monospace identifiers. Landscape 4:3. Generous outer margins.
+Composition: Large title above a vertical central stack of four modules. An executable-tool module branches to the right of the core. Use sufficient whitespace and keep all labels inside their boxes. Draw no decorative or ambiguous arrows.
+Text (verbatim):
+Title: "Pi Agent Core：三层架构"
+Subtitle: "模型接口、运行循环与应用策略各司其职"
+Top module heading: "应用层"
+Top module identifier: "pi-coding-agent / 你的应用"
+Top module contents: "会话存储 · 上下文压缩 · 界面 · 具体工具"
+Second central module heading: "运行层"
+Second module identifier: "pi-agent-core"
+Second module contents: "Agent 状态 · agent-loop · 工具调度 · 事件 · 输入队列"
+Third central module heading: "模型适配层"
+Third module identifier: "pi-ai"
+Third module contents: "统一消息 · 流式响应 · 服务商适配"
+Bottom central module: "模型服务"
+Right module heading: "应用提供的工具"
+Right module identifier: "AgentTool.execute"
+Right module contents: "参数 → 执行 → 结果"
+Arrow label from application to core: "创建与配置"
+Arrow label from core to pi-ai: "streamFn"
+Arrow label from pi-ai to model service: "请求 / 响应"
+Arrow label from core to executable tool: "调用"
+Arrow label from executable tool back to core: "toolResult"
+Footer: "阅读主线：types.ts → agent.ts → agent-loop.ts → tests"
+Constraints: Top-to-bottom arrows application → core → pi-ai → model service; model-service link can be bidirectional because it carries request and response. The tool branch belongs beside the core, with one outgoing call arrow and one returning result arrow. The core must be visually central and emphasized. Application owns session storage, compaction, UI and concrete tool implementations. Do not put storage or automatic compaction inside pi-agent-core. Do not depict pi-ai as executing tools. Render only the specified text, exactly; preserve capitalization, hyphens, dots and Chinese characters. No invented features, no logos, no watermark, no tiny footnotes.

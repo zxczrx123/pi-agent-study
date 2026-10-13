@@ -1,0 +1,31 @@
+
+> demo:loop
+> node --import ./study/register-source.mjs ./study/01-tool-loop.ts
+
+agent_start
+turn_start
+message_start [user]
+message_end [user]
+
+模型请求 1，消息角色：system → user
+message_start [assistant]
+message_end [assistant]
+tool_execution_start
+tool_execution_update
+tool_execution_end
+message_start [toolResult]
+message_end [toolResult]
+turn_end [assistant]
+turn_start
+
+模型请求 2，消息角色：system → user → assistant → toolResult
+message_start [assistant]
+message_update [assistant]
+message_update [assistant]
+  文本增量：2 + 3 = 5
+message_update [assistant]
+message_end [assistant]
+turn_end [assistant]
+agent_end
+
+通过：真实源码完成了两次模型调用、一次工具执行，并保留完整消息历史。

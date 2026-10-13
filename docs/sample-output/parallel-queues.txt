@@ -1,0 +1,14 @@
+
+> demo:queues
+> node --import ./study/register-source.mjs ./study/02-queues-and-parallel.ts
+
+执行模式：parallel
+工具开始时加入 steer 和 followUp；工具继续执行。
+工具完成：fast
+工具完成：slow
+消息写入：slow
+消息写入：fast
+模型请求 2 收到：先用中文解释结果
+模型请求 3 收到：再给一句总结
+
+通过：执行顺序、消息保存顺序、steer 和 followUp 的注入时机均符合预期。
